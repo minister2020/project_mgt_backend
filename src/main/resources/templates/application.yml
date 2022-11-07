@@ -1,0 +1,18 @@
+server:
+  port: '8082'
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=project_management;encrypt=true;trustServerCertificate=true;integratedSecurity=true
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+jpa:
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+  hibernate:
+    ddl-auto: update
+hibernate:
+  show-sql: update
+
+## Hibernate Properties
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
