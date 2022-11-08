@@ -32,9 +32,9 @@ public class Project {
     @OneToOne
     @JoinColumn(name = "internId")
     private Intern Intern;
-
-    @OneToMany(mappedBy = "")
-    private Appointment appointment;
+//
+//    @OneToMany(mappedBy = "")
+//    private Appointment appointment;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Comment> comments;

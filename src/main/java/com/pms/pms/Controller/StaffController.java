@@ -1,10 +1,8 @@
 package com.pms.pms.Controller;
 
 import com.pms.pms.Entity.Comment;
-import com.pms.pms.Entity.Intern;
 import com.pms.pms.Entity.Staff;
 import com.pms.pms.service.CommentService;
-import com.pms.pms.service.InternService;
 import com.pms.pms.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +16,14 @@ import java.util.Optional;
 public class StaffController {
 
     @Autowired
-    StaffService staffService;
-    CommentService commentService;
+    private final StaffService staffService;
+    private final CommentService commentService;
+
+    public StaffController(StaffService staffService, CommentService commentService) {
+        this.staffService = staffService;
+        this.commentService = commentService;
+    }
+
     @PostMapping("")
     @ResponseBody
     public ResponseEntity<Staff> createStaff(@RequestBody Staff staff){

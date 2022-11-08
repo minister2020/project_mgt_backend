@@ -2,21 +2,16 @@ package com.pms.pms.service.serviceImpl;
 
 import com.pms.pms.Dto.AppointmentDto;
 import com.pms.pms.Dto.CommentDto;
-import com.pms.pms.Dto.StaffDto;
 import com.pms.pms.Entity.Comment;
-import com.pms.pms.Entity.Intern;
 import com.pms.pms.Entity.Project;
 import com.pms.pms.Entity.Staff;
 import com.pms.pms.Exception.ResourceNotFoundException;
 import com.pms.pms.Repository.CommentRepository;
-import com.pms.pms.Repository.InternRepository;
 import com.pms.pms.Repository.ProjectRepository;
 import com.pms.pms.Repository.StaffRepository;
 import com.pms.pms.service.StaffService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Embedded;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,17 +22,11 @@ public class StaffServiceImpl implements StaffService {
 //    @Autowired
 
    // StaffRepository staffDto;
-    private StaffRepository staffDto;
+    private final StaffRepository staffDto;
 
     private final ProjectRepository projectRepository;
 
     private final StaffRepository staffRepository;
-
-    public StaffServiceImpl(ProjectRepository projectRepository, StaffRepository staffRepository, CommentRepository commentRepository) {
-        this.projectRepository = projectRepository;
-        this.staffRepository = staffRepository;
-        this.commentRepository = commentRepository;
-    }
 
     private final CommentRepository commentRepository;
 
@@ -67,7 +56,7 @@ public class StaffServiceImpl implements StaffService {
         Comment comment1 = new Comment();
         comment1.setTitle(comment1.getTitle());
         comment1.setMessage(commentDto.getMessage());
-        comment1.setAuthor(staffRepository.getById(id));
+       comment1.setAuthor(staffRepository.getById(id));
         comment1.setProject(project);
         commentRepository.save(comment1);
     }

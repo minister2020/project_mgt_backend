@@ -58,7 +58,7 @@ public class InternServiceImpl implements InternService {
         Comment comment1 = new Comment();
         comment1.setTitle(comment1.getTitle());
         comment1.setMessage(commentDto.getMessage());
-        comment1.setAuthor(internRepository.getById(id));
+       // comment1.setAuthor(internRepository.getById(id));
         comment1.setProject(project);
         commentRepository.save(comment1);
     }
@@ -73,8 +73,8 @@ public class InternServiceImpl implements InternService {
     }
 
     @Override
-    public list<Comment> viewALlComment() {
-        return null;
+    public List<Comment> viewALlComment() {
+        return commentRepository.findAll();
     }
 
 

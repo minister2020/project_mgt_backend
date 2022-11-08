@@ -24,7 +24,7 @@ public class Comment {
 
     @ManyToOne()
     @JoinColumn(name = "userId")
-    private User author;
+    private Staff author;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "projectId", referencedColumnName = "id")
