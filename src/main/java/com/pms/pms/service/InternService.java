@@ -17,9 +17,9 @@ public interface InternService {
 
     Appointment checkAppointmentStatus();
 
-    List<Comment> viewAllComment();
 
-    List<Comment> viewALlComment();
+
+    List<Comment> viewAllComment();
 
     List<Intern> getAllIntern();
     Optional<Intern> getInternById(Long id);

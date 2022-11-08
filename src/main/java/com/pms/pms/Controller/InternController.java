@@ -47,7 +47,7 @@ public class InternController {
         return internService.getAllIntern();
     }
     @GetMapping("/viewComment/")
-    public List<Comment> viewAllComment(){
+    public List<Comment> viewAllComments(){
         return commentService.viewAllComment();
     }
 

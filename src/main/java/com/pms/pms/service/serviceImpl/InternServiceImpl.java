@@ -23,6 +23,8 @@ public class InternServiceImpl implements InternService {
 
     private final InternRepository internDto;
 
+    private CommentRepository commentDto;
+
     private final ProjectRepository projectRepository;
 
     private final InternRepository internRepository;
@@ -72,9 +74,10 @@ public class InternServiceImpl implements InternService {
         return (Appointment) appointmentList.getIntern().getAppointments();
     }
 
+
     @Override
-    public List<Comment> viewALlComment() {
-        return commentRepository.findAll();
+    public List<Comment> viewAllComment() {
+        return commentDto.findAll();
     }
 
 
@@ -83,9 +86,9 @@ public class InternServiceImpl implements InternService {
         return internDto.findAll();
     }
 
-    public List<Comment> viewAllComment(){
-        return commentRepository.findAll();
-    }
+//    public List<Comment> viewAllComment(){
+//        return commentRepository.findAll();
+//    }
 
     @Override
     public Optional<Intern> getInternById(Long id) {
