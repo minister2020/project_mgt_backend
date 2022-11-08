@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Intern")
-public class Intern {
+public class Intern extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

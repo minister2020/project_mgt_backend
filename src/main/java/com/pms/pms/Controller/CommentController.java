@@ -21,9 +21,11 @@ public class CommentController {
     CommentService commentService;
     @PostMapping("")
     @ResponseBody
+
+    //build add comment api
     public ResponseEntity<Comment> AddComment(@RequestBody Comment comment){
 
-        // create comment api
+
         Comment newComment = commentService.addComment(comment);
         return new ResponseEntity<>(newComment, HttpStatus.CREATED);
 
@@ -31,7 +33,7 @@ public class CommentController {
 
 
 
-    //build get all user api
+    //build view all comment api
 
     @GetMapping("/comment")
     @ResponseBody
@@ -47,13 +49,13 @@ public class CommentController {
         return new ResponseEntity<Comment>(comment.get(),HttpStatus.OK);
     }
 
-    // build update user api
+    // build update comment api
     @PutMapping("/comment/{id}")
     public ResponseEntity<Comment> updateComment(@PathVariable("id") Long id , Comment comment){
         Comment commentResponse =  commentService.updateComment(comment, id);
         return  new ResponseEntity<>(commentResponse, HttpStatus.OK);
     }
-
+    //build delete comment api
     @DeleteMapping("/comment/{id}")
     public ResponseEntity<String> deleteComment(@PathVariable("id") Long id, Comment comment){
         commentService.deleteComment(id);

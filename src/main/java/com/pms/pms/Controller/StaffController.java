@@ -1,7 +1,9 @@
 package com.pms.pms.Controller;
 
+import com.pms.pms.Entity.Comment;
 import com.pms.pms.Entity.Intern;
 import com.pms.pms.Entity.Staff;
+import com.pms.pms.service.CommentService;
 import com.pms.pms.service.InternService;
 import com.pms.pms.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ public class StaffController {
 
     @Autowired
     StaffService staffService;
+    CommentService commentService;
     @PostMapping("")
     @ResponseBody
     public ResponseEntity<Staff> createStaff(@RequestBody Staff staff){
@@ -25,6 +28,17 @@ public class StaffController {
         Staff newStaff = staffService.createStaff(staff);
         return new ResponseEntity<>(newStaff, HttpStatus.CREATED);
 
+    }
+
+    //build commentToproject api
+
+    @GetMapping("/comment")
+    @ResponseBody
+    public ResponseEntity<Comment> createCommentToProject(@RequestBody Comment comment) {
+
+        // create intern api
+        Comment newComment = commentService.addComment(comment);
+        return new ResponseEntity<>(newComment, HttpStatus.CREATED);
     }
 
 
@@ -51,7 +65,7 @@ public class StaffController {
         Staff staffResponse =  staffService.updateStaff(staff, id);
         return  new ResponseEntity<>(staffResponse, HttpStatus.OK);
     }
-
+  //build delete staff api
     @DeleteMapping("/staff/{id}")
     public ResponseEntity<String> deleteStaff(@PathVariable("id") Long id, Staff staff){
         staffService.deleteStaff(id);

@@ -22,6 +22,10 @@ public class Comment {
 
     private String message;
 
+    @ManyToOne()
+    @JoinColumn(name = "userId")
+    private User author;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "projectId", referencedColumnName = "id")
     private Project project;

@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Staff")
-public class Staff {
+public class Staff extends User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -41,6 +41,9 @@ public class Staff {
 
     @OneToMany(mappedBy = "staff")
     private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "staff")
+    private List<Comment> comments;
 
 }
 
