@@ -1,47 +1,59 @@
 package com.pms.pms.service.serviceImpl;
-
-import com.pms.pms.Dto.AppointmentDto;
 import com.pms.pms.Entity.Appointment;
+import com.pms.pms.Entity.User;
+import com.pms.pms.Exception.ResourceNotFoundException;
 import com.pms.pms.Repository.AppointmentRepository;
-import com.pms.pms.Repository.ProjectRepository;
 import com.pms.pms.service.AppointmentService;
-import com.pms.pms.service.CommentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Embedded;
+import java.util.List;
+import java.util.Optional;
 
 @Service
-
 public class AppointmentServiceImpl implements AppointmentService {
-    @Embedded
-    @Autowired
-    AppointmentRepository appointmentDto;
-    CommentService commentService;
-    ProjectRepository projectService;
 
-
+    private final AppointmentRepository appointmentRepository;
+    public AppointmentServiceImpl(AppointmentRepository appointmentRepository) {
+        this.appointmentRepository = appointmentRepository;
+    }
+@Override
     public Appointment createAppointment(Appointment appointment){
-
-
         Appointment appointment1 = new Appointment();
-        appointment1.setId(appointment.getId());
-        appointment1.setStart(appointment.getStart());
-        appointment1.setEndApp(appointment.getEndApp());
-        appointment1.setCanceledAt(appointment.getCanceledAt());
-
-       return appointmentDto.save(appointment);
+        appointment1.setStartTime(appointment.getStartTime());
+        appointment1.setEndTime(appointment.getEndTime());
+        return appointmentRepository.save(appointment);
     }
 
 
+   @Override
+    public List<Appointment> getAllAppointment() {
+// TODO Auto-generated method stub
+        return appointmentRepository.findAll();
+    }
+
+  @Override
+    public Optional<Appointment> getAppointmentById(Long id) {
+
+        Optional<Appointment> appointment = Optional.ofNullable(appointmentRepository.findById(id).get());
+        if (appointment.isPresent()) {
+            return Optional.of(appointment.get());
+        } else {
+            throw new ResourceNotFoundException("User", "id", id);
+        }
+    }
+
+@Override
+    public Appointment updateAppointment(Appointment appointment, Long id){
+
+    Appointment existingAppointment = appointmentRepository.findById(id).get();
+    existingAppointment.setStartTime(appointment.getStartTime());
+    existingAppointment.setEndTime(appointment.getEndTime());
+
+    return appointmentRepository.save(appointment);
+
+    }
     @Override
-    public void updateAppointment(Appointment appointment) {
-    Appointment existingAppointment = appointmentDto.findById(appointment.getId()).get();
-    existingAppointment.setId(appointment.getId());
-    existingAppointment.setStart(appointment.getStart());
-    existingAppointment.setEndApp(appointment.getEndApp());
-    existingAppointment.setCanceledAt(appointment.getCanceledAt());
-
-
+    public void deleteAppointment(Long id){
+       appointmentRepository.deleteById(id);
     }
 }

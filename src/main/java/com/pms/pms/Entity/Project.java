@@ -25,16 +25,6 @@ public class Project {
 
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "projectId",referencedColumnName = "id")
-    private Staff staff;
-
-    @OneToOne
-    @JoinColumn(name = "internId")
-    private Intern Intern;
-//
-//    @OneToMany(mappedBy = "")
-//    private Appointment appointment;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Comment> comments;

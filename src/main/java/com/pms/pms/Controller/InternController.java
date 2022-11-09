@@ -3,13 +3,8 @@ package com.pms.pms.Controller;
 
 import com.pms.pms.Entity.Comment;
 import com.pms.pms.Entity.Intern;
-import com.pms.pms.Entity.Project;
 import com.pms.pms.Repository.CommentRepository;
-import com.pms.pms.Repository.InternRepository;
-import com.pms.pms.Repository.ProjectRepository;
 import com.pms.pms.service.CommentService;
-import com.pms.pms.service.InternService;
-import com.pms.pms.service.projectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

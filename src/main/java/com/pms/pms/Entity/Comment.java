@@ -22,9 +22,7 @@ public class Comment {
 
     private String message;
 
-    @ManyToOne()
-    @JoinColumn(name = "userId")
-    private Staff author;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "projectId", referencedColumnName = "id")

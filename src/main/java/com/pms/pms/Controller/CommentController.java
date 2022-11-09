@@ -1,9 +1,7 @@
 package com.pms.pms.Controller;
 
 import com.pms.pms.Entity.Comment;
-import com.pms.pms.Entity.Intern;
 import com.pms.pms.service.CommentService;
-import com.pms.pms.service.InternService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @RequestMapping("/api2")
@@ -43,7 +39,7 @@ public class CommentController {
 
 
     //build get all comment by id
-    @GetMapping("/intern/{id}")
+    @GetMapping("/comment/{id}")
     public ResponseEntity<Comment> viewCommentById(@PathVariable("id") Long id){
         Optional<Comment> comment = commentService.viewCommentById(id);
         return new ResponseEntity<Comment>(comment.get(),HttpStatus.OK);

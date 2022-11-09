@@ -13,8 +13,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Staff")
-public class Staff{
+@Table(name = "User")
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -25,6 +25,7 @@ public class Staff{
     @Column(name = "last_name")
     private String lastName;
 
+
     @Column(name = "email")
     private String email;
 
@@ -33,17 +34,17 @@ public class Staff{
     @Column(name = "phone")
     private String phone;
 
-    @OneToMany(mappedBy = "staff")
-    private List<Intern> interns;
+    @OneToOne
+    private Role role;
 
-    @OneToMany(mappedBy = "staff")
+    @OneToMany(mappedBy = "user")
     private List<Project> projects;
 
-    @OneToMany(mappedBy = "staff")
-    private List<Appointment> appointments;
 
-//    @OneToMany(mappedBy = "staff")
-//    private List<Comment> comments;
+
+
+
+
 
 }
 

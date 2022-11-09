@@ -2,7 +2,7 @@ package com.pms.pms.service.serviceImpl;
 
 import com.pms.pms.Entity.Comment;
 import com.pms.pms.Entity.Project;
-import com.pms.pms.Entity.Staff;
+
 import com.pms.pms.Exception.ResourceNotFoundException;
 import com.pms.pms.Repository.ProjectRepository;
 import com.pms.pms.service.projectService;

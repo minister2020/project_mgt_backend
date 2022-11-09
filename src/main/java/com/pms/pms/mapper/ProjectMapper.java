@@ -2,7 +2,7 @@ package com.pms.pms.mapper;
 
 import com.pms.pms.Dto.ProjectDto;
 import com.pms.pms.Entity.Project;
-import com.pms.pms.Entity.Staff;
+
 import lombok.Builder;
 
 @Builder
@@ -13,7 +13,7 @@ public class ProjectMapper {
                 .id(project.getId())
                 .project_title(project.getProject_title())
                 .description(project.getDescription())
-                .staff(project.getStaff())
+
                 .comments(project.getComments())
                 .build();
     }
