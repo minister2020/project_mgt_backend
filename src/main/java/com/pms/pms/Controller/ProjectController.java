@@ -9,19 +9,21 @@ import com.pms.pms.service.projectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api3")
+@RequestMapping("/api/auth")
 
 public class ProjectController {
 
     @Autowired
     projectService projectService;
     @PostMapping("/uploadProject")
+   // @PreAuthorize("hasRole('ADMIN')")
     @ResponseBody
 
     //build add project api

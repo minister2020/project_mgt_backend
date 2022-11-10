@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 @RestController
-@RequestMapping("/api")
-@Slf4j
+@RequestMapping("/api/auth")
+//@Slf4j
 public class UserController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class UserController {
     @PostMapping("/addUser")
 //    @ResponseBody
     public ResponseEntity<User> createUser(@RequestBody UserDto userDto){
-        log.info("userDto  == >>>  {}", userDto);
+      //  log.info("userDto  == >>>  {}", userDto);
         User newUser = userService.createUser(userDto);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 

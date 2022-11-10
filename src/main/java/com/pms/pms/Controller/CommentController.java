@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api2")
+@RequestMapping("/api/auth")
 public class CommentController {
     @Autowired
     CommentService commentService;
@@ -28,16 +28,6 @@ public class CommentController {
 
     }
 
-
-    //build view all comment api
-
-//    @GetMapping("/comment")
-//    @ResponseBody
-//    public List<Comment> viewAllComment() {
-//        return commentService.viewAllComment();
-//    }
-
-
     //build get all comment by id
     @GetMapping("/comment/{id}")
     public ResponseEntity<Comment> viewCommentsByProject(@PathVariable("id") Long id) {
@@ -45,12 +35,7 @@ public class CommentController {
         return new ResponseEntity<Comment>(comment.get(), HttpStatus.OK);
     }
 
-    // build update comment api
-//    @PutMapping("/comment/{id}")
-//    public ResponseEntity<Comment> updateComment(@PathVariable("id") Long id , Comment comment){
-//        Comment commentResponse =  commentService.updateComment(comment, id);
-//        return  new ResponseEntity<>(commentResponse, HttpStatus.OK);
-//}
+
     //build delete comment api
     @DeleteMapping("/comment/{id}")
     public ResponseEntity<String> deleteComment(@PathVariable("id") Long id, Comment comment){
