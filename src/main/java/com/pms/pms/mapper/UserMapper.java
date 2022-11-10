@@ -2,8 +2,6 @@ package com.pms.pms.mapper;
 
 import com.pms.pms.Dto.UserDto;
 import com.pms.pms.Entity.User;
-import com.pms.pms.Repository.RoleRepository;
-import com.pms.pms.Repository.UserRepository;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 

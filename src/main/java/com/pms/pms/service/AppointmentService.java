@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AppointmentService {
-  Appointment createAppointment(Appointment appointment);
+  Appointment createAppointment(AppointmentDto appointmentDto);
 
   List<Appointment> getAllAppointment();
 
-  Optional<Appointment> getAppointmentById(Long id);
+  Appointment getAppointmentByUser(Long userId);
 
 
   Appointment updateAppointment(Appointment appointment, Long id);

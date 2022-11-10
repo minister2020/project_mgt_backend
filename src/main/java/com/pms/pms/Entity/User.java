@@ -13,8 +13,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "User")
+@Table(name = "User_TBL")
 public class User{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -25,7 +26,6 @@ public class User{
     @Column(name = "last_name")
     private String lastName;
 
-
     @Column(name = "email")
     private String email;
 
@@ -34,17 +34,8 @@ public class User{
     @Column(name = "phone")
     private String phone;
 
-    @OneToOne
+    @Enumerated(EnumType.STRING)
     private Role role;
-
-    @OneToMany(mappedBy = "user")
-    private List<Project> projects;
-
-
-
-
-
-
 
 }
 

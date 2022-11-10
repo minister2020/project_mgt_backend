@@ -6,8 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 @Data
@@ -25,8 +24,11 @@ public class Project {
 
     private String description;
 
+    @OneToOne
+    private User user;
 
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Comment> comments;
+
+//    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<Comment> comments;
 
 }

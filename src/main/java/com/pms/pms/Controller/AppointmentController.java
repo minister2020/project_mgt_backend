@@ -19,9 +19,9 @@ public class AppointmentController {
     AppointmentService appointmentService;
     @PostMapping("/add")
     @ResponseBody
-    public ResponseEntity<Appointment> createAppointment( @RequestBody Appointment appointment){
-        log.info("appointment to be created, {}", appointment);
-        Appointment newAppointment = appointmentService.createAppointment(appointment);
+    public ResponseEntity<Appointment> createAppointment( @RequestBody AppointmentDto appointmentDto){
+        log.info("appointment to be created, {}", appointmentDto);
+        Appointment newAppointment = appointmentService.createAppointment(appointmentDto);
         return new ResponseEntity<>(newAppointment, HttpStatus.CREATED);
     }
 

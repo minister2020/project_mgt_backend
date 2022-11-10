@@ -1,5 +1,7 @@
 package com.pms.pms.Controller;
 
+import com.pms.pms.Dto.APIResponse;
+import com.pms.pms.Dto.ProjectDto;
 import com.pms.pms.Entity.Comment;
 import com.pms.pms.Entity.Project;
 import com.pms.pms.service.CommentService;
@@ -16,17 +18,16 @@ import java.util.Optional;
 @RequestMapping("/api3")
 
 public class ProjectController {
+
     @Autowired
     projectService projectService;
-    @PostMapping("")
+    @PostMapping("/uploadProject")
     @ResponseBody
 
     //build add project api
-    public ResponseEntity<Project> uploadProject(@RequestBody Project project){
-
-
-        Project newProject = projectService.uploadProject(project);
-        return new ResponseEntity<>(newProject, HttpStatus.CREATED);
+    public ResponseEntity<APIResponse<?>> uploadProject(@RequestBody ProjectDto projectDto){
+        APIResponse<?> newProject = projectService.uploadProject(projectDto);
+        return new ResponseEntity<>(newProject, HttpStatus.OK);
 
     }
 
@@ -44,7 +45,7 @@ public class ProjectController {
     //build get all comment by id
     @GetMapping("/project/{id}")
     public ResponseEntity<Project> viewProjectById(@PathVariable("id") Long id){
-        Optional<Project> project = projectService.viewProjectById(id);
+        Optional<Project> project = projectService.viewProjectByUser(id);
         return new ResponseEntity<Project>(project.get(),HttpStatus.OK);
     }
 

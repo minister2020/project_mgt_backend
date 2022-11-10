@@ -1,5 +1,6 @@
 package com.pms.pms.service.serviceImpl;
 
+import com.pms.pms.Dto.UserDto;
 import com.pms.pms.Entity.User;
 import com.pms.pms.Exception.ResourceNotFoundException;
 import com.pms.pms.Repository.UserRepository;
@@ -23,13 +24,15 @@ public class UserServiceimpl implements UserService {
 
 
 
-    public User createUser(User user) {
-        User user1 = new User();
-        user1.setFirstName(user.getFirstName());
-        user1.setLastName(user.getLastName());
-        user1.setPhone(user.getPhone());
-        user1.setEmail(user.getEmail());
-        user1.setPassword(user.getPassword());
+    public User createUser(UserDto userDto) {
+        User user = new User();
+
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setPhone(userDto.getPhone());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(userDto.getPassword());
+        user.setRole(userDto.getRole());
 
         return userRepository.save(user);
     }

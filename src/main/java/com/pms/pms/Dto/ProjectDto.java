@@ -14,11 +14,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProjectDto {
-
     private Long id;
     private String project_title;
     private String description;
-
-   private Set<Comment> comments;
-
+    private Long userId;
 }

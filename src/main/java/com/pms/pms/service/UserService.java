@@ -3,6 +3,7 @@ package com.pms.pms.service;
 
 
 
+import com.pms.pms.Dto.UserDto;
 import com.pms.pms.Entity.User;
 
 import java.util.List;
@@ -10,8 +11,7 @@ import java.util.Optional;
 
 public interface UserService {
 
-    User createUser(User user);
-
+    User createUser(UserDto userdto);
 
     List<User> getAllUser();
 

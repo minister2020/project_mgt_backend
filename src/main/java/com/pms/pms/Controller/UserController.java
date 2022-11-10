@@ -1,7 +1,9 @@
 package com.pms.pms.Controller;
+import com.pms.pms.Dto.UserDto;
 import com.pms.pms.Entity.User;
 import com.pms.pms.service.CommentService;
 import com.pms.pms.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@RestController
+@RequestMapping("/api")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -21,19 +25,18 @@ public class UserController {
         this.commentService = commentService;
     }
 
-    @PostMapping("")
-    @ResponseBody
-    public ResponseEntity<User> createStaff(@RequestBody User user){
-
-        // create staff api
-        User newUser = userService.createUser(user);
+    @PostMapping("/addUser")
+//    @ResponseBody
+    public ResponseEntity<User> createUser(@RequestBody UserDto userDto){
+        log.info("userDto  == >>>  {}", userDto);
+        User newUser = userService.createUser(userDto);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 
     }
 
 
 
-    //build get all staff api
+
 
     @GetMapping("/user")
     @ResponseBody

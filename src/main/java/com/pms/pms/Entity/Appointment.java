@@ -20,25 +20,18 @@ public class Appointment  {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
-    @DateTimeFormat(pattern = " yyyy-MM-dd Hh: MM: ss")
     @Column(name = "startTime")
     private String startTime;
 
-
-   @DateTimeFormat(pattern = "yyyy-MM-dd Hh: MM: ss")
     @Column(name = "endTime")
     private String endTime;
 
-   private User user;
+    private String purpose;
 
 
+    @ManyToOne()
+    private User intern;
 
-
-
-
-
-
-
-
+    @ManyToOne()
+    private User staff;
 }

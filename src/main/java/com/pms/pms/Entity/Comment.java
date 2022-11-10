@@ -22,6 +22,7 @@ public class Comment {
 
     private String message;
 
+    @ManyToOne()
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

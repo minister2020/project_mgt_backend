@@ -18,5 +18,7 @@ public class CommentDto {
 
     private String message;
 
-    private Project project;
+    private Long projectId;
+
+    private Long userId;
 }
