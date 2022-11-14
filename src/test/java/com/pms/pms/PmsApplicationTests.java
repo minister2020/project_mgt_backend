@@ -51,17 +51,6 @@ class PmsApplicationTests {
 		assertEquals(project, outPut.getBody().getId());
 	}
 
-//	@Test @Order(3)
-//	public void test_uploadProject(){
-//		Project project = new Project(6L,"city","Nigerian", User.builder().build());
-//		when(projectService.uploadProject(project).thenReturn();
-//		ResponseEntity<Project> outPut = projectController.uploadProject(project);
-//		assertEquals(HttpStatus.CREATED, outPut.getStatusCode());
-//		assertEquals(project, outPut.getBody());
-//	}
-
-
-
 	@Test
 	void contextLoads() {
 	}
